@@ -165,7 +165,7 @@ app.post("/image-upload", upload.single("image"), async (req, res) => {
         if (!req.file) {
             return res.status(400).json({ error: true, message: "No image uploaded" })
         }
-        const imageUrl = `${HOSTNAME}:${PORT}/uploads/${req.file.filename}`
+        const imageUrl = `${HOSTNAME}/uploads/${req.file.filename}`
         res.status(200).json({ imageUrl })
     } catch (error) {
         res.status(500).json({ error: true, message: error.message })
@@ -216,7 +216,7 @@ app.put("/edit-travel-story/:id", authenticateToken, async (req, res) => {
             res.status(404).json({ error: true, message: "Story not found" })
         }
 
-        const placeholderImgUrl = `${HOSTNAME}:${PORT}/assets/placeholder.png`
+        const placeholderImgUrl = `${HOSTNAME}/assets/placeholder.png`
 
 
 
